@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,12 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-tJ-460">
+                                <rect key="frame" x="166" y="50" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="881-fB-7hp">
+                                <rect key="frame" x="30" y="90.5" width="315" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jia-ey-LQo" customClass="Koyomi" customModule="Koyomi">
-                                <rect key="frame" x="37.5" y="50" width="300" height="260"/>
+                                <rect key="frame" x="37" y="178.5" width="300" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="Ulk-YT-YvP"/>
-                                    <constraint firstAttribute="width" constant="300" id="X9H-BP-LxK"/>
+                                    <constraint firstAttribute="width" constant="300" id="Vqe-IP-OmG"/>
+                                    <constraint firstAttribute="height" constant="260" id="tB0-3T-KyW"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iye-hB-bSO">
                                     <size key="itemSize" width="50" height="50"/>
@@ -46,49 +59,60 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="sectionSpace">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cellSpace">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="weekCellHeight">
                                         <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="circularViewDiameter">
-                                        <real key="value" value="35"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-tJ-460">
-                                <rect key="frame" x="166" y="340" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="881-fB-7hp">
-                                <rect key="frame" x="30" y="381" width="315" height="29"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title=""/>
-                                </segments>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cjF-09-TYf">
+                                <rect key="frame" x="20" y="478.5" width="335" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjH-2L-VoG">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="35"/>
+                                        <state key="normal" title="previous"/>
+                                        <connections>
+                                            <action selector="preMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k8Z-DD-WdD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-Ss-C6T">
+                                        <rect key="frame" x="111.5" y="0.0" width="112" height="35"/>
+                                        <state key="normal" title="current"/>
+                                        <connections>
+                                            <action selector="currentMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="507-lH-2eX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wi-v5-dY3">
+                                        <rect key="frame" x="223.5" y="0.0" width="111.5" height="35"/>
+                                        <state key="normal" title="next"/>
+                                        <connections>
+                                            <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M6p-AX-DPg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9hR-ad-riF"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dd5-tJ-460" firstAttribute="top" secondItem="jia-ey-LQo" secondAttribute="bottom" constant="30" id="3Co-Zw-gn1"/>
                             <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="881-fB-7hp" secondAttribute="trailing" constant="14" id="Cut-d9-eNz"/>
+                            <constraint firstItem="cjF-09-TYf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Cyc-Fq-ZQF"/>
                             <constraint firstItem="881-fB-7hp" firstAttribute="leading" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="HU6-AN-L9E"/>
-                            <constraint firstItem="dd5-tJ-460" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Htc-Xu-LOb"/>
-                            <constraint firstItem="jia-ey-LQo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IKf-gH-wBW"/>
                             <constraint firstItem="dd5-tJ-460" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V4K-5y-D0V"/>
-                            <constraint firstItem="881-fB-7hp" firstAttribute="top" secondItem="dd5-tJ-460" secondAttribute="bottom" constant="20" id="eyd-95-uVe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cjF-09-TYf" secondAttribute="trailing" constant="20" id="VXa-Lb-OsU"/>
+                            <constraint firstItem="881-fB-7hp" firstAttribute="top" secondItem="dd5-tJ-460" secondAttribute="bottom" constant="20" id="Vtz-lK-TKJ"/>
+                            <constraint firstItem="cjF-09-TYf" firstAttribute="top" secondItem="jia-ey-LQo" secondAttribute="bottom" constant="40" id="lIV-Lp-qwO"/>
+                            <constraint firstItem="dd5-tJ-460" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="nP5-Dh-NNk"/>
                             <constraint firstItem="881-fB-7hp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rvg-1I-z9e"/>
-                            <constraint firstItem="jia-ey-LQo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="u6k-f4-dRs"/>
+                            <constraint firstItem="jia-ey-LQo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSp-so-0kU"/>
+                            <constraint firstItem="jia-ey-LQo" firstAttribute="top" secondItem="881-fB-7hp" secondAttribute="bottom" constant="60" id="zwJ-Jx-CgO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="currentDateLabel" destination="dd5-tJ-460" id="RzV-Rw-R3j"/>
-                        <outlet property="koyomi" destination="jia-ey-LQo" id="hbX-dW-pY0"/>
+                        <outlet property="koyomi" destination="jia-ey-LQo" id="d4c-2s-gfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

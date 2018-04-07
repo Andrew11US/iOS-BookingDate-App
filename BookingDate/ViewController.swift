@@ -12,6 +12,15 @@ import Koyomi
 class ViewController: UIViewController {
     
     @IBOutlet weak var koyomi: Koyomi!
+    @IBOutlet weak var currentDateLabel: UILabel!
+    
+    fileprivate let invalidPeriodLength = 90
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setProperties(element: koyomi)
+        currentDateLabel.text = koyomi.currentDateString()
+    }
     
     func setProperties(element: Koyomi) {
         
@@ -28,27 +37,19 @@ class ViewController: UIViewController {
             .setWeekFont(size: 10)
     }
     
-    @IBOutlet weak var currentDateLabel: UILabel!
+    @IBAction func nextMonth(_ sender: UIButton) {
+        koyomi.display(in: .next)
+    }
     
-    fileprivate let invalidPeriodLength = 90
+    @IBAction func preMonth(_ sender: UIButton) {
+        koyomi.display(in: .previous)
+    }
     
-//    @IBOutlet fileprivate weak var segmentedControl: UISegmentedControl!
-    
-//    func setSegmentProperties(element: UISegmentedControl) {
-//        segmentedControl.setTitle("Previous", forSegmentAt: 0)
-//        segmentedControl.setTitle("Current", forSegmentAt: 1)
-//        segmentedControl.setTitle("Next", forSegmentAt: 2)
-//    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setProperties(element: koyomi)
-//        setSegmentProperties(element: segmentedControl)
-//        currentDateLabel.text = koyomi.currentDateString()
+    @IBAction func currentMonth(_ sender: UIButton) {
+        koyomi.display(in: .current)
     }
     
     // MARK: - Utility
-    
     fileprivate func date(_ date: Date, later: Int) -> Date {
         var components = DateComponents()
         components.day = later
@@ -56,28 +57,14 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - Tap Action
-//extension ViewController {
-//
-//    @IBAction func tappedControl(_ sender: UISegmentedControl) {
-//        let month: MonthType = {
-//            switch sender.selectedSegmentIndex {
-//            case 0:  return .previous
-//            case 1:  return .current
-//            default: return .next
-//            }
-//        }()
-//        koyomi.display(in: month)
-//    }
-//
-//}
-
-// MARK: - KoyomiDelegate -
-
+// MARK: - KoyomiDelegate
 extension ViewController: KoyomiDelegate {
     
     func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath) {
-        print("You Selected: \(String(describing: date))")
+        
+        if let date = date {
+            print("date: \(date)")
+        }
     }
     
     func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
@@ -86,11 +73,25 @@ extension ViewController: KoyomiDelegate {
     
     @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
     func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool {
+        
         if length > invalidPeriodLength {
             print("More than \(invalidPeriodLength) days are invalid period.")
             return false
+        } else {
+            
+            print("\(length) days stay")
+            print("from \(date?.dayOfTheWeek() ?? "") to \(toDate?.dayOfTheWeek() ?? "")")
+            return true
         }
-        return true
+    }
+    
+}
+
+extension Date {
+    func dayOfTheWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
     }
 }
 
