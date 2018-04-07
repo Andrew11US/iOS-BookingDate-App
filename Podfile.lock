@@ -1,0 +1,16 @@
+PODS:
+  - Koyomi (1.2.7)
+
+DEPENDENCIES:
+  - Koyomi (~> 1.2)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Koyomi
+
+SPEC CHECKSUMS:
+  Koyomi: f03615b8d2bb5a5a4752c6404a9794ed7ef7b327
+
+PODFILE CHECKSUM: 913329b3e92e43312709015cdbb5d48c7736315c
+
+COCOAPODS: 1.5.0
