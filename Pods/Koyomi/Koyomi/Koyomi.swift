@@ -109,7 +109,7 @@ public enum KoyomiStyle {
         case .pink:     return .init(dayBackgrond: .white, weekBackgrond: UIColor.KoyomiColor.pink, week: .white, holiday: (UIColor.KoyomiColor.darkGray, UIColor.KoyomiColor.darkGray), separator: UIColor.KoyomiColor.pink)
             
         // Deep color style
-        case .deepBlack:    return .init(dayBackgrond: UIColor.KoyomiColor.black, weekBackgrond: UIColor.KoyomiColor.black, week: .white, weekday: .white, holiday: (.white, .white), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.darkBlack)
+        case .deepBlack:    return .init(dayBackgrond: UIColor.KoyomiColor.black, weekBackgrond: UIColor.KoyomiColor.black, week: .white, weekday: .white, holiday: (.white, .white), otherMonth: UIColor.KoyomiColor.enchancedGray, separator: UIColor.KoyomiColor.darkBlack)
         case .deepRed:      return .init(dayBackgrond: UIColor.KoyomiColor.red, weekBackgrond: UIColor.KoyomiColor.red, week: .white, weekday: .white, holiday: (.white, .white), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.orange)
         case .deepOrange:   return .init(dayBackgrond: UIColor.KoyomiColor.orange, weekBackgrond: UIColor.KoyomiColor.orange, week: .white, weekday: .white, holiday: (.white, .white), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.yellow)
         case .deepYellow:   return .init(dayBackgrond: UIColor.KoyomiColor.yellow, weekBackgrond: UIColor.KoyomiColor.yellow, week: .white, weekday: .white, holiday: (.white, .white), otherMonth: UIColor.KoyomiColor.lightGray, separator: UIColor.KoyomiColor.lightYellow)

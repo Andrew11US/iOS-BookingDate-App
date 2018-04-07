@@ -30,6 +30,7 @@ extension UIColor {
         static let lightPurple: UIColor = .init(hex: 0xC86EDF)
         static let lightGreen: UIColor  = .init(hex: 0xA4E786)
         static let lightPink: UIColor   = .init(hex: 0xFFD3E0)
+        static let enchancedGray: UIColor = .init(hex: 0x7F7F7F)
         
         // Using [iOS Human Interface Guidelines] as reference.
         // https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/
