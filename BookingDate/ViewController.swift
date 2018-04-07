@@ -14,10 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var koyomi: Koyomi!
     @IBOutlet weak var currentDateLabel: UILabel!
     
-    fileprivate let invalidPeriodLength = 90
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setProperties(element: koyomi)
         currentDateLabel.text = koyomi.currentDateString()
     }
@@ -28,10 +27,10 @@ class ViewController: UIViewController {
         koyomi.calendarDelegate = self
         koyomi.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         koyomi.weeks = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
-        koyomi.style = .standard
+        koyomi.style = .deepBlack
         koyomi.dayPosition = .center
         koyomi.selectionMode = .sequence(style: .semicircleEdge)
-        koyomi.selectedStyleColor = UIColor(red: 203/255, green: 119/255, blue: 223/255, alpha: 1)
+        koyomi.selectedStyleColor = UIColor(red: 255/255, green: 218/255, blue: 0/255, alpha: 1)
         koyomi
             .setDayFont(size: 14)
             .setWeekFont(size: 10)
@@ -60,38 +59,35 @@ class ViewController: UIViewController {
 // MARK: - KoyomiDelegate
 extension ViewController: KoyomiDelegate {
     
+    func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
+        currentDateLabel.text = dateString
+    }
+    
     func koyomi(_ koyomi: Koyomi, didSelect date: Date?, forItemAt indexPath: IndexPath) {
         
         if let date = date {
-            print("date: \(date)")
+            print("date: \(date.fullDate())")
         }
-    }
-    
-    func koyomi(_ koyomi: Koyomi, currentDateString dateString: String) {
-        currentDateLabel.text = dateString
     }
     
     @objc(koyomi:shouldSelectDates:to:withPeriodLength:)
     func koyomi(_ koyomi: Koyomi, shouldSelectDates date: Date?, to toDate: Date?, withPeriodLength length: Int) -> Bool {
         
-        if length > invalidPeriodLength {
-            print("More than \(invalidPeriodLength) days are invalid period.")
+        if length > 90 {
+            print("More than 90 days have been selected.")
             return false
-        } else {
             
-            print("\(length) days stay")
-            print("from \(date?.dayOfTheWeek() ?? "") to \(toDate?.dayOfTheWeek() ?? "")")
+        } else {
+            if let startDate = date, let endDate = toDate {
+                print("\(length) days stay")
+                print("from \(startDate.fullDate()) to \(endDate.fullDate())")
+            }
+            
             return true
         }
     }
     
 }
 
-extension Date {
-    func dayOfTheWeek() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter.string(from: self)
-    }
-}
+
 

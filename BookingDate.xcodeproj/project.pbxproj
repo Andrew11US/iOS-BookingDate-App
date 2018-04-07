@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012B0BCA20795D170022D3F0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B0BC920795D170022D3F0 /* DateExtension.swift */; };
 		01D5608D2079177B0050AD37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5608C2079177B0050AD37 /* AppDelegate.swift */; };
 		01D5608F2079177B0050AD37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5608E2079177B0050AD37 /* ViewController.swift */; };
 		01D560922079177B0050AD37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D560902079177B0050AD37 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		012B0BC920795D170022D3F0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		01D560892079177B0050AD37 /* BookingDate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookingDate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01D5608C2079177B0050AD37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01D5608E2079177B0050AD37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012B0BC820795CFB0022D3F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				012B0BC920795D170022D3F0 /* DateExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		0138F1C02079198100E6C677 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 		01D5608B2079177B0050AD37 /* BookingDate */ = {
 			isa = PBXGroup;
 			children = (
+				012B0BC820795CFB0022D3F0 /* Extensions */,
 				0138F1C02079198100E6C677 /* Support Files */,
 				01D560A22079179B0050AD37 /* Controllers */,
 				01D560A1207917830050AD37 /* Storyboards */,
@@ -228,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01D560952079177B0050AD37 /* BookingDate.xcdatamodeld in Sources */,
+				012B0BCA20795D170022D3F0 /* DateExtension.swift in Sources */,
 				01D5608F2079177B0050AD37 /* ViewController.swift in Sources */,
 				01D5608D2079177B0050AD37 /* AppDelegate.swift in Sources */,
 			);
