@@ -81,6 +81,9 @@ extension ViewController: KoyomiDelegate {
             if let startDate = date, let endDate = toDate {
                 print("\(length) days stay")
                 print("from \(startDate.fullDate()) to \(endDate.fullDate())")
+                dateFrom = startDate.fullDate()
+                dateTo = endDate.fullDate()
+                lengthStay = length
             }
             
             return true
