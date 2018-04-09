@@ -85,6 +85,9 @@ final class KoyomiCell: UICollectionViewCell {
         case .standard:
             self.backgroundColor = isSelected ? color : backgroundColor
             
+            // Change day color
+//            self.dayBackgroundColor = UIColor.green
+            
             circularView.isHidden  = true
             lineView.isHidden = true
             rightSemicircleView.isHidden = true
